@@ -278,11 +278,11 @@ define([
             const fov = this.camera.fov;
             switch (mode) {
             case Constants.MODES.CARDBOARD:
-                this.effect = this.undefined;
+                this.effect = this.cardboardEffect;
                 this.enableReticleControl();
                 break;
             case Constants.MODES.STEREO:
-                this.effect = this.undefined;
+                this.effect = this.stereoEffect;
                 this.enableReticleControl();
                 break;
             default:
@@ -344,12 +344,12 @@ define([
         },
         enableAutoRate: function () {
             this.options.autoRotate = true;
-            this.undefined.autoRotate = true;
+            this.orbitControls.autoRotate = true;
         },
         disableAutoRate: function () {
             clearTimeout(this.autoRotateRequestId);
             this.options.autoRotate = false;
-            this.undefined.autoRotate = false;
+            this.orbitControls.autoRotate = false;
         },
         toggleVideoPlay: function (pause) {
             if (this.panorama instanceof VideoPanorama) {
@@ -417,7 +417,7 @@ define([
             }
         },
         setCameraControl: function () {
-            this.undefined.target.copy(this.panorama.position);
+            this.orbitControls.target.copy(this.panorama.position);
         },
         getControl: function () {
             return this.control;
@@ -492,8 +492,8 @@ define([
             return sprite.visible && this.cameraFrustum.intersectsSprite(sprite);
         },
         reverseDraggingDirection: function () {
-            this.undefined.rotateSpeed *= -1;
-            this.undefined.momentumScalingFactor *= -1;
+            this.orbitControls.rotateSpeed *= -1;
+            this.orbitControls.momentumScalingFactor *= -1;
         },
         addReticle: function () {
             this.reticle = new Reticle(16777215, true, this.options.dwellTime);
@@ -502,7 +502,7 @@ define([
             this.sceneReticle.add(this.camera);
         },
         tweenControlCenter: function (vector, duration, easing) {
-            if (this.control !== this.undefined) {
+            if (this.control !== this.orbitControls) {
                 return;
             }
             if (vector instanceof Array) {
@@ -821,8 +821,8 @@ define([
             }
             if (this.options.autoRotate && this.userMouse.type !== 'mousemove') {
                 clearTimeout(this.autoRotateRequestId);
-                if (this.control === this.undefined) {
-                    this.undefined.autoRotate = false;
+                if (this.control === this.orbitControls) {
+                    this.orbitControls.autoRotate = false;
                     this.autoRotateRequestId = window.setTimeout(this.enableAutoRate.bind(this), this.options.autoRotateActivationDuration);
                 }
             }

@@ -1,1 +1,1 @@
-{"version":3,"sources":["panolens.js"],"names":["define","skylark","attach"],"mappings":";;;;;;;AAAAA,QACC,yBACE,SAAUC,GAET,OAAOA,EAAQC,OAAO","file":"../panolens.js","sourcesContent":["define([\n\t\"skylark-langx/skylark\"\n], function (skylark) {\n\n    return skylark.attach(\"intg.panolens\",{\n    });\n});"]}
+{"version":3,"sources":["panolens.js"],"names":["define","skylark"],"mappings":";;;;;;;AAAAA,QACC,yBACE,SAAUC,GAET","file":"../panolens.js","sourcesContent":["define([\n\t\"skylark-langx/skylark\"\n], function (skylark) {\n\n    return {\n    };\n});"]}

@@ -22,8 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "skylark-langx": "git+https://github.com/skylark-langx/skylark-langx.git#master",
-    "skylark-tweenjs": "git+https://github.com/skylark-integration/skylark-tweenjs.git#master",
-    "skylark-threejs": "git+https://github.com/skylark-integration/skylark-threejs.git#master"
+    "skylark-threejs": "git+https://github.com/skylark-integration/skylark-threejs.git#master",
+    "skylark-tweenjs": "git+https://github.com/skylark-integration/skylark-tweenjs.git#master"
   },
   "files": [
     "demo/",
@@ -51,7 +51,7 @@
         "all": true
       }
     }
-  },  
+  },
   "engines": {
     "node": ">=0.10.1"
   }

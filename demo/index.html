@@ -80,6 +80,7 @@
           console.log(e.progress);
         });
         
+        /*
         panorama_main_video2 = new PANOLENS.VideoPanorama( 'asset/textures/video/1941-battle-low.mp4', { autoplay: false, muted: true });
         panorama_main_video2.setLinkingImage( 'asset/textures/1941-battle-thumb.png' );
         panorama_main_video2.addEventListener( 'progress',function(e){
@@ -118,7 +119,9 @@
         viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
         viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
 
+        */
         // Side panorama
+        /*
         viewer_side = new PANOLENS.Viewer({ output: 'overlay', container: document.querySelector( '#panolens-separate-container' ) });
 
         //panorama_side_image = new PANOLENS.ImagePanorama( 'asset/textures/equirectangular/sunset.jpg' );
@@ -131,6 +134,17 @@
         panorama_side_image.add( infospot3 );
 
         viewer_side.add( panorama_side_image );
+        */
+
+        infospot1 = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+        infospot1.position.set( 3187.12, 1036.61, -2996.43 );
+        infospot1.addHoverText( 'Mountain Tip' );
+        infospot1.addEventListener( 'click', function(){
+          viewer_main.tweenControlCenterByObject( cube );
+        } );
+        panorama_main_video.add( infospot1 );
+        
+        viewer_main.add( panorama_main_video);
 
         var item = viewer_main.appendControlItem( { 
 
